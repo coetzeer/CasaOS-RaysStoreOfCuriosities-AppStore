@@ -47,9 +47,6 @@ services:
           description:
             en_us: Gogs data directory.
             zh_cn: Gogs 数据目录。
-    devices: []
-    cap_add: []
-    command: []
     network_mode: bridge
     privileged: false
     hostname: gogs
