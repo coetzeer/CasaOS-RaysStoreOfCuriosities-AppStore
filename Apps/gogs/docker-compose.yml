@@ -2,6 +2,12 @@ name: gogs
 services:
   gogs:
     container_name: gogs
+    deploy:
+        resources:
+          reservations:
+            memory: "2147483648"
+          limits:
+            memory: 12887M
     image: gogs/gogs
     labels:
       icon: https://commons.wikimedia.org/wiki/File:Gogs_logo.png

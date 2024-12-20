@@ -2,6 +2,12 @@ name: forgejo
 services:
   forgejo:
     container_name: forgejo
+    deploy:
+        resources:
+          reservations:
+            memory: "2147483648"
+          limits:
+            memory: 12887M
     image: forgejo/forgejo:9.0.3
     labels:
       icon: https://seeklogo.com/images/F/forgejo-logo-34620A5CD1-seeklogo.com.png
