@@ -1,4 +1,4 @@
-# Forejo
+# forgejo
 
 A self hosted git repo manager
 
