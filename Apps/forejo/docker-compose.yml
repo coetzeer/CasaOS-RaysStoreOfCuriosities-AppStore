@@ -95,5 +95,5 @@ x-casaos:
   title:
     en_us: Forgejo
     custom: ""
-  hostname: ""
+  hostname: "forejo"
   scheme: http
