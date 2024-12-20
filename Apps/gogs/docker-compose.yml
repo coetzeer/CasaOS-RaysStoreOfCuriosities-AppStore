@@ -15,18 +15,18 @@ services:
     restart: unless-stopped
     volumes:
       - type: bind
-        source: /DATA/AppData/gitea/data
+        source: /DATA/AppData/gogs/data
         target: /data
     x-casaos:
       envs:
         - container: USER_UID
           description:
-            en_us: The UID (Unix user ID) of the user that runs Gitea
-            zh_cn: Gitea 运行的用户的 UID（Unix 用户 ID）
+            en_us: The UID (Unix user ID) of the user that runs Gogs
+            zh_cn: Gogs 运行的用户的 UID（Unix 用户 ID）
         - container: USER_GID
           description:
-            en_us: The GID (Unix group ID) of the user that runs Gitea
-            zh_cn: Gitea 运行的用户的 GID（Unix 组 ID）
+            en_us: The GID (Unix group ID) of the user that runs Gogs
+            zh_cn: Gogs 运行的用户的 GID（Unix 组 ID）
       ports:
         - container: "3000"
           description:
@@ -39,14 +39,14 @@ services:
       volumes:
         - container: /data
           description:
-            en_us: Gitea data directory.
-            zh_cn: Gitea 数据目录。
+            en_us: Gogs data directory.
+            zh_cn: Gogs 数据目录。
     devices: []
     cap_add: []
     command: []
     network_mode: bridge
     privileged: false
-    hostname: gitea
+    hostname: gogs
     cpu_shares: 90
 x-casaos:
   architectures:
