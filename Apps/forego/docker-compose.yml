@@ -1,32 +1,32 @@
-name: gogs
+name: forgejo
 services:
-  gogs:
-    container_name: gogs
-    image: gogs/gogs
+  forgejo:
+    container_name: forgejo
+    image: forgejo/forgejo:9.0.3
     labels:
-      icon: https://commons.wikimedia.org/wiki/File:Gogs_logo.png
+      icon: https://seeklogo.com/images/F/forgejo-logo-34620A5CD1-seeklogo.com.png
     ports:
       - target: 3000
-        published: "3003"
+        published: "3004"
         protocol: tcp
       - target: 22
-        published: "223"
+        published: "224"
         protocol: tcp
     restart: unless-stopped
     volumes:
       - type: bind
-        source: /DATA/AppData/gogs/data
+        source: /DATA/AppData/forgejo/data
         target: /data
     x-casaos:
       envs:
         - container: USER_UID
           description:
-            en_us: The UID (Unix user ID) of the user that runs Gogs
-            zh_cn: Gogs 运行的用户的 UID（Unix 用户 ID）
+            en_us: The UID (Unix user ID) of the user that runs Forgejo
+            zh_cn: Forgejo 运行的用户的 UID（Unix 用户 ID）
         - container: USER_GID
           description:
-            en_us: The GID (Unix group ID) of the user that runs Gogs
-            zh_cn: Gogs 运行的用户的 GID（Unix 组 ID）
+            en_us: The GID (Unix group ID) of the user that runs Forgejo
+            zh_cn: Forgejo 运行的用户的 GID（Unix 组 ID）
       ports:
         - container: "3000"
           description:
@@ -39,14 +39,14 @@ services:
       volumes:
         - container: /data
           description:
-            en_us: Gogs data directory.
-            zh_cn: Gogs 数据目录。
+            en_us: Forgejo data directory.
+            zh_cn: Forgejo 数据目录。
     devices: []
     cap_add: []
     command: []
     network_mode: bridge
     privileged: false
-    hostname: gogs
+    hostname: forgejo
     cpu_shares: 90
 x-casaos:
   architectures:
@@ -55,18 +55,18 @@ x-casaos:
   author: Raymond
   category: Developer
   description:
-    en_us: The Gogs (/gɑgz/) project aims to build a simple, stable and extensible self-hosted Git service that can be set up in the most painless way. With Go, this can be done with an independent binary distribution across all platforms that Go supports, including Linux, macOS, Windows and ARM-based systems.     
-  developer: Gogs
-  icon: https://commons.wikimedia.org/wiki/File:Gogs_logo.png
+    en_us: Beyond coding. We forge. https://forgejo.org/ Forgejo is a self-hosted lightweight software forge.Easy to install and low maintenance, it just does the job. 
+  developer: Forgejo
+  icon: https://seeklogo.com/images/F/forgejo-logo-34620A5CD1-seeklogo.com.png
   index: /
   is_uncontrolled: false
-  main: gogs
+  main: forgejo
   port_map: "3002"
   screenshot_link:
     - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gitea/screenshot-1.png
     - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gitea/screenshot-2.png
     - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gitea/screenshot-3.png
-  store_app_id: gogs
+  store_app_id: forgejo
   tagline:
     ar_sa: Git مع كوب من الشاي
     de_de: Git mit einem Tässchen Tee
@@ -81,7 +81,7 @@ x-casaos:
     sv_se: Git med en kopp te
     uk_ua: Git з чашкою чаю
     zh_cn: 自托管软件开发服务
-  thumbnail: https://commons.wikimedia.org/wiki/File:Gogs_logo.png
+  thumbnail: https://seeklogo.com/images/F/forgejo-logo-34620A5CD1-seeklogo.com.png
   tips:
     before_install:
       en_us: >
@@ -90,7 +90,7 @@ x-casaos:
       zh_cn: |
         安装应用后，注册的第一个账号将成为管理员账号。
   title:
-    en_us: Gogs
+    en_us: Forgejo
     custom: ""
   hostname: ""
   scheme: http
