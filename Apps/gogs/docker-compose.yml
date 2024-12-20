@@ -1,0 +1,96 @@
+name: gogs
+services:
+  gogs:
+    container_name: gogs
+    image: gogs/gogs
+    labels:
+      icon: https://commons.wikimedia.org/wiki/File:Gogs_logo.png
+    ports:
+      - target: 3000
+        published: "3002"
+        protocol: tcp
+      - target: 22
+        published: "223"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/gitea/data
+        target: /data
+    x-casaos:
+      envs:
+        - container: USER_UID
+          description:
+            en_us: The UID (Unix user ID) of the user that runs Gitea
+            zh_cn: Gitea 运行的用户的 UID（Unix 用户 ID）
+        - container: USER_GID
+          description:
+            en_us: The GID (Unix group ID) of the user that runs Gitea
+            zh_cn: Gitea 运行的用户的 GID（Unix 组 ID）
+      ports:
+        - container: "3000"
+          description:
+            en_us: WebUI Port
+            zh_cn: WebUI 端口
+        - container: "22"
+          description:
+            en_us: SSH Port
+            zh_cn: SSH 端口
+      volumes:
+        - container: /data
+          description:
+            en_us: Gitea data directory.
+            zh_cn: Gitea 数据目录。
+    devices: []
+    cap_add: []
+    command: []
+    network_mode: bridge
+    privileged: false
+    hostname: gitea
+    cpu_shares: 90
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  author: Raymond
+  category: Developer
+  description:
+    en_us: The Gogs (/gɑgz/) project aims to build a simple, stable and extensible self-hosted Git service that can be set up in the most painless way. With Go, this can be done with an independent binary distribution across all platforms that Go supports, including Linux, macOS, Windows and ARM-based systems.     
+  developer: Gogs
+  icon: https://commons.wikimedia.org/wiki/File:Gogs_logo.png
+  index: /
+  is_uncontrolled: false
+  main: gogs
+  port_map: "3002"
+  screenshot_link:
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gitea/screenshot-1.png
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gitea/screenshot-2.png
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gitea/screenshot-3.png
+  store_app_id: gogs
+  tagline:
+    ar_sa: Git مع كوب من الشاي
+    de_de: Git mit einem Tässchen Tee
+    en_us: Self-hosted software development service
+    es_es: Git con una taza de té
+    fr_fr: Git avec une tasse de thé
+    hu_hu: Git egy csésze tea kíséretében
+    it_it: Git con una tazza di tè
+    pl_pl: Git z filiżanką herbaty
+    pt_br: Git com uma xícara de chá
+    ru_ru: Git с чашечкой чая
+    sv_se: Git med en kopp te
+    uk_ua: Git з чашкою чаю
+    zh_cn: 自托管软件开发服务
+  thumbnail: https://commons.wikimedia.org/wiki/File:Gogs_logo.png
+  tips:
+    before_install:
+      en_us: >
+        When the App is installed, the first account registered will become the
+        administrator account.
+      zh_cn: |
+        安装应用后，注册的第一个账号将成为管理员账号。
+  title:
+    en_us: Gogs
+    custom: ""
+  hostname: ""
+  scheme: http
