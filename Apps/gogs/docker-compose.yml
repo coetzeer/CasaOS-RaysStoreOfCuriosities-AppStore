@@ -8,7 +8,7 @@ services:
             memory: "2147483648"
           limits:
             memory: 12887M
-    image: gogs/gogs
+    image: gogs/gogs:latest
     labels:
       icon: https://commons.wikimedia.org/wiki/File:Gogs_logo.png
     ports:
@@ -64,7 +64,7 @@ x-casaos:
   index: /
   is_uncontrolled: false
   main: gogs
-  port_map: "3002"
+  port_map: "3003"
   screenshot_link:
     - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gitea/screenshot-1.png
     - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gitea/screenshot-2.png

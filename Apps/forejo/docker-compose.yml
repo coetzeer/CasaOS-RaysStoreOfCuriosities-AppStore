@@ -64,7 +64,7 @@ x-casaos:
   index: /
   is_uncontrolled: false
   main: forgejo
-  port_map: "3002"
+  port_map: "3004"
   screenshot_link:
     - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gitea/screenshot-1.png
     - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gitea/screenshot-2.png

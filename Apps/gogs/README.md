@@ -1,9 +1,9 @@
-# Forejo
 
+# Gogs 
 A self hosted git repo manager
 
 ---
 
-**Homepage:** https://forgejo.org/
+**Homepage:** https://github.com/gogs/gogs
 
-**WebUI Port:** `3004`
+**WebUI Port:** `3003`
