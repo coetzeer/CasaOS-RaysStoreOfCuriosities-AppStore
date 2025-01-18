@@ -1,0 +1,87 @@
+name: owncloud
+services:
+  owncloud:
+    container_name: owncloud
+    deploy:
+        resources:
+          reservations:
+            memory: "2147483648"
+          limits:
+            memory: 12887M
+    image: owncloud/server:10.15
+    labels:
+      icon: https://seeklogo.com/images/O/owncloud-logo-415ADECEB3-seeklogo.com.png
+    ports:
+      - target: 8080
+        published: "8086"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/owncloud/data
+        target: /mnt/data
+    environment:
+      OWNCLOUD_REDIS_DB: 2
+      OWNCLOUD_REDIS_ENABLED: "true"
+      OWNCLOUD_REDIS_HOST: redis
+      OWNCLOUD_DB_HOST: postgres
+      OWNCLOUD_DB_NAME: owncloud
+      OWNCLOUD_DB_PASSWORD: owncloud
+      OWNCLOUD_DB_USERNAME: owncloud
+      OWNCLOUD_DB_TYPE: pgsql
+      OWNCLOUD_TRUSTED_DOMAINS: owncloud.home
+    # healthcheck:
+    #   test: ["CMD", "/usr/bin/healthcheck"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 5
+    x-casaos:
+      envs:
+        - container: OWNCLOUD_REDIS_DB
+          description:
+            en_us: Redis DB to use
+        - container: OWNCLOUD_REDIS_HOST
+          description:
+            en_us: Redis host
+        - container: OWNCLOUD_REDIS_ENABLED
+          description:
+            en_us: Enable Redis
+        - container: OWNCLOUD_REDIS_ENABLED
+          description:
+            en_us: Enable redis
+      ports:
+        - container: "8086"
+          description:
+            en_us: WebUI Port
+            zh_cn: WebUI 端口
+      volumes:
+        - container: /mnt/data
+          description:
+            en_us: Owncloud data.
+    network_mode: bridge
+    privileged: false
+    hostname: owncloud
+    cpu_shares: 90
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  author: Raymond
+  category: Developer
+  description:
+    en_us: ownCloud is an open-source file sync, share and content collaboration software that lets teams work on data easily from anywhere, on any device. It provides access to your data through a web interface, sync clients or WebDAV while providing a platform to view, sync and share across devices easily - all under your control. ownCloud’s open architecture is extensible via a simple but powerful API for applications and plugins and it works with any storage.
+  developer: Owncloud
+  icon: https://seeklogo.com/images/O/owncloud-logo-415ADECEB3-seeklogo.com.png
+  index: /
+  is_uncontrolled: false
+  main: owncloud
+  port_map: "8086"
+  store_app_id: gogs
+  tagline:
+    en_us: ownCloud - Secure Collaboration Platform
+  thumbnail: https://seeklogo.com/images/O/owncloud-logo-415ADECEB3-seeklogo.com.png
+  title:
+    en_us: Owncloud
+    custom: ""
+  hostname: "owncloud"
+  scheme: http

@@ -1,0 +1,73 @@
+name: redis
+services:
+  redis:
+    container_name: redis
+    deploy:
+        resources:
+          reservations:
+            memory: "2147483648"
+          limits:
+            memory: 12887M
+    image: redis:7-alpine
+    labels:
+      icon: https://images.seeklogo.com/logo-png/27/1/redis-logo-png_seeklogo-273850.png?v=1957905009152374232
+    ports:
+      - target: 6379
+        published: "6379"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/redis/data
+        target: /data
+    environment:
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16
+    # healthcheck:
+    #   test: ["CMD", "/usr/bin/healthcheck"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 5
+    x-casaos:
+      envs:
+        - container: REDIS_PORT
+          description:
+            en_us: The port that redis should listen on 
+        - container: REDIS_DATABASES
+          description:
+            en_us: How many databases to start
+      ports:
+        - container: "6379"
+          description:
+            en_us: The port that redis should listen on
+      volumes:
+        - container: /data
+          description:
+            en_us: Redis data.
+    network_mode: bridge
+    privileged: false
+    hostname: redis
+    cpu_shares: 90
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  author: Raymond
+  category: Developer
+  description:
+    en_us: Redis is the world’s fastest data platform for caching, vector search, and NoSQL databases.
+  developer: redis
+  icon: https://images.seeklogo.com/logo-png/27/1/redis-logo-png_seeklogo-273850.png?v=1957905009152374232
+  index: /
+  is_uncontrolled: false
+  main: redis
+  port_map: "6379"
+  store_app_id: redis
+  tagline:
+    en_us: Redis is the world’s fastest data platform for caching, vector search, and NoSQL databases.
+  thumbnail: https://images.seeklogo.com/logo-png/27/1/redis-logo-png_seeklogo-273850.png?v=1957905009152374232
+  title:
+    en_us: Redis
+    custom: ""
+  hostname: "redis"
+  scheme: http

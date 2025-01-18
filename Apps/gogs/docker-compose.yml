@@ -10,7 +10,7 @@ services:
             memory: 12887M
     image: gogs/gogs:latest
     labels:
-      icon: https://commons.wikimedia.org/wiki/File:Gogs_logo.png
+      icon: https://avatars.githubusercontent.com/u/6656686?s=280&v=4
     ports:
       - target: 3000
         published: "3003"
@@ -60,7 +60,7 @@ x-casaos:
   description:
     en_us: The Gogs (/gɑgz/) project aims to build a simple, stable and extensible self-hosted Git service that can be set up in the most painless way. With Go, this can be done with an independent binary distribution across all platforms that Go supports, including Linux, macOS, Windows and ARM-based systems.     
   developer: Gogs
-  icon: https://commons.wikimedia.org/wiki/File:Gogs_logo.png
+  icon: https://avatars.githubusercontent.com/u/6656686?s=200&v=4
   index: /
   is_uncontrolled: false
   main: gogs
@@ -84,7 +84,7 @@ x-casaos:
     sv_se: Git med en kopp te
     uk_ua: Git з чашкою чаю
     zh_cn: 自托管软件开发服务
-  thumbnail: https://commons.wikimedia.org/wiki/File:Gogs_logo.png
+  thumbnail: https://avatars.githubusercontent.com/u/6656686?s=280&v=4
   tips:
     before_install:
       en_us: >
@@ -95,5 +95,5 @@ x-casaos:
   title:
     en_us: Gogs
     custom: ""
-  hostname: ""
+  hostname: "gogs"
   scheme: http
